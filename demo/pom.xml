@@ -12,8 +12,28 @@
   <name>demo Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
-
-  <properties>
+   <distributionManagement>
+			<repository>
+			   <id>internalMavanReleaseRepository</id>
+			   <name>Internal Maven Release Repository</name>
+			   <url>${releases.distribution.url}</url>
+			</repository>
+		<snapshotRepository>
+	           <id>internalMavenSnapshotRepository</id>
+               <name>Internal Snapshots Repository</name>
+               <url>${snapshots.distribution.url}</url>			   
+			   <uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	             </distributionManagement>
+    
+             <properties>
+                 <repository.server.root>http://3.17.207.115:8081/repository</repository.server.root>
+			     	<releases.distribution.url>
+                      ${repository.server.root}/devops-releases/
+                    </releases.distribution.url>
+                    <snapshots.distribution.url>
+                    ${repository.server.root}/devops-snapshots/
+                    </snapshots.distribution.url>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
